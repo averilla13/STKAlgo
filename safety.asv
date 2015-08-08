@@ -1,0 +1,19 @@
+function [ A ] = safety( STK, PSL, D )
+
+K = strcat('A',D)
+shares = xlsread('stocklist.xls',1, K);
+
+M = strcat('C',D)
+vest =  xlsread('stocklist.xls',1, K);
+val = share*STK;
+
+V = val/M;
+
+if V > .7
+    
+A = 0;%or zero, for no buy
+else 
+    A = 1;
+    
+end
+
