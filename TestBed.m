@@ -17,13 +17,14 @@ for i = 2:length(stocks)
     stk = char(stocks(i,1));
     [cls s3 s4] = xlsread('stockdatabase.xls',stk, 'A:A');
     [vol s3 s4] = xlsread('stockdatabase.xls',stk, 'B:B');
-for len = 1:length(cls)
+for len = 21:length(cls)
   clos = cls(1:len);
   volume = vol(1:len);
   share = shares(i,1);
   vest = invested(i,1);
+  
   void1 = safety(clos(end), PSL, share, vest);
-    
+  decision =  algo3filter( clos, volume);
 end
 end
 

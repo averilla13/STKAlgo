@@ -9,7 +9,7 @@ mS = zeros(LS,1);
 
 kS = 2/(nS+1);
 
-mS(1) = t(1);
+mS(1) = tS(1);
 
 for i= 2:LS
     mS(i) = kS*(tS(i)-mS(i-1))+ mS(i-1);
@@ -48,7 +48,7 @@ end
 
 tV = length(volume);
 t20 = tV - 20;
-avgvolume = avg(t20:tV);
+avgvolume = mean(t20:tV);
 
 if (volume > avgvolume)
     Q1 = Q * 1;
@@ -66,7 +66,7 @@ clos20 = clos(c20:cV);
 volume20 = volume(t20:tV);
 correlation = corr(clos20,volume20);
 
-avgcorr = avg(correlation);
+avgcorr = mean(correlation);
 
 if (avgcorr > .75)
     Q2 = Q1 * 1;
