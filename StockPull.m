@@ -23,8 +23,20 @@ vol = xlsread(stockfile, 'F:F');
 xlswrite('stockdatabase.xls', clos, stock, 'A:A');
 xlswrite('stockdatabase.xls', vol, stock, 'B:B');
 
-[data stuff more] = xlsread('stockdatabase.xls',stock);
+[data stu more] = xlsread('stockdatabase.xls',stock);
 
+[a stuff len] = xlsread('stocklist.xls',1,'A:A');
+[F L] = (size(stuff));
+for i = 1:F
+    sc = strcmp(stuff(i,1),stock);
+    if sc == 1
+    break
+    else
+B = num2str(F+1);
+b = strcat('A',B);
+xlswrite('stocklist.xls',{stock},1,b);
+    end
+end
 delete(stockfile);
 
 
